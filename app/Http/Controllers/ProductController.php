@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // $products = Product::all();
+        // $categories = Category::all();
+        $products = Product::with('category')->get(); // Joins products with categories
+        // return view('product.index')->with(['products' => $products, 'categories' => $categories]);
         return view('product.index')->with(['products' => $products]);
     }
 
@@ -21,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $categories = Category::all();
+        return view('product.create')->with(['categories' => $categories]);
     }
 
     /**
@@ -52,7 +57,9 @@ class ProductController extends Controller
             return redirect()->route('product.index')->with('error', 'Product not found.');
         }
 
-        return view('product.edit')->with(['product' => $product]);
+        $categories = Category::all();
+
+        return view('product.edit')->with(['product' => $product, 'categories' => $categories]);
     }
 
     /**

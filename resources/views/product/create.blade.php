@@ -1,5 +1,9 @@
 @extends('master.main')
 
+@section('pagetitle')
+<title>Add Product</title>
+@endsection
+
 @section('content')
     <!-- Content -->
 
@@ -58,9 +62,9 @@
                                 <div class="mt-2 mb-3">
                                     <label for="category_id" class="form-label">Large select</label>
                                     <select id="category_id" name="category_id" class="form-select form-select-lg">
-                                        <option value="1" selected>One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

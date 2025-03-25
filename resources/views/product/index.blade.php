@@ -1,8 +1,12 @@
 @extends('master.main')
 
+@section(section: 'pagetitle')
+<title>Product Listiing</title>
+@endsection
+
 @section('content')
     <!-- Bordered Table -->
-    <div class="container">
+    <div class="container-xxl">
         @if (session('success'))
             <div class="mb-3 mt-3">
                 <div class="alert alert-success" role="alert">{{ session('success') }}</div>
@@ -42,7 +46,7 @@
                                         {{ $product->quantity }}
                                     </td>
                                     <td>
-                                        {{ $product->category_id }}
+                                        {{ $product->category->category_name }}
                                     </td>
                                     <td>
                                         <div class="dropdown">

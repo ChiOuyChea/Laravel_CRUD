@@ -1,5 +1,9 @@
 @extends('master.main')
 
+@section('pagetitle')
+<title>Edit Product</title>
+@endsection
+
 @section('content')
     <!-- Content -->
 
@@ -53,9 +57,12 @@
                                 <div class="mt-2 mb-3">
                                     <label for="category_id" class="form-label">Large select</label>
                                     <select id="category_id" name="category_id" class="form-select form-select-lg">
-                                        <option value="1" {{ $product->category_id == 1 ? 'selected' : '' }}>One</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{ $category->category_name }}</option>
+                                        @endforeach
+                                        {{-- <option value="1" {{ $product->category_id == 1 ? 'selected' : '' }}>One</option>
                                         <option value="2" {{ $product->category_id == 2 ? 'selected' : '' }}>Two</option>
-                                        <option value="3" {{ $product->category_id == 3 ? 'selected' : '' }}>Three</option>
+                                        <option value="3" {{ $product->category_id == 3 ? 'selected' : '' }}>Three</option> --}}
                                     </select>
                                 </div>
                             </div>

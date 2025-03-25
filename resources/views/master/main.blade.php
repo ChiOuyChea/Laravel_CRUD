@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel CRUD</title>
+    {{-- <title>Laravel CRUD</title> --}}
+
+    @yield('pagetitle')
 
     @vite('resources/css/app.css')
     <!-- Favicon -->
@@ -89,7 +91,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Linkplify</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Laravel CRUD</span>
                     </a>
 
                     <a href="javascript:void(0);"
@@ -115,6 +117,14 @@
                         <a href="{{ url('/product/create') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-box"></i>
                             <div data-i18n="Analytics">Add Product</div>
+                        </a>
+                    </li>
+
+                    <!-- Add Product -->
+                    <li class="menu-item {{ Request::is('category') ? 'active' : '' }}">
+                        <a href="{{ url('/category') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-category"></i>
+                            <div data-i18n="Analytics">Category</div>
                         </a>
                     </li>
 
