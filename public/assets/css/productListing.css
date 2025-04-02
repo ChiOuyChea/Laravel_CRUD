@@ -1,0 +1,9 @@
+.product-image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 50px;
+}

@@ -1,5 +1,9 @@
 @extends('master.main')
 
+@section('headerResource')
+    <link rel="stylesheet" href="{{ asset('assets/css/productListing.css') }}">
+@endsection
+
 @section(section: 'pagetitle')
 <title>Product Listiing</title>
 @endsection
@@ -21,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Image</th>
                                 <th>Title</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
@@ -35,6 +40,9 @@
                                     <td>
                                         {{ $product->id }}
                                     </td>
+                                    <td class="product-image-column">
+                                        <img class="product-image" src="{{ asset('storage/' . $product->image) }}" alt="">
+                                    </td>
                                     <td>
                                         <i class="fab fa-angular fa-lg text-danger me-3"></i>
                                         <strong>{{ $product->title }}</strong>
@@ -46,7 +54,7 @@
                                         {{ $product->quantity }}
                                     </td>
                                     <td>
-                                        {{ $product->category->category_name }}
+                                        {{ $product->category ? $product->category->category_name : 'None' }}
                                     </td>
                                     <td>
                                         <div class="dropdown">

@@ -1,0 +1,76 @@
+.dropzone {
+    border: none;
+}
+
+.dropzone .dz-message {
+    padding: 5rem;
+}
+
+.dropzone .dz-message, .dropzone .previews {
+    margin-top: .3rem;
+    margin-bottom: 3rem;
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 15px;
+}
+
+.dropzone .previews {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: none;
+}
+
+a.dz-remove {
+    display: none !important;
+}
+
+.dz-progress {
+    display: none;
+}
+
+#upload-form {
+    touch-action: none;
+    pointer-events: none;
+}
+
+#upload-form * {
+    pointer-events: all;
+}
+
+input, label, button {
+    cursor: pointer !important;
+}
+
+button.dz-remove {
+    padding: 8px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.dz-remove > img {
+    width: 8px;
+    display: block;
+}
+
+.dropzone .dz-preview .dz-remove {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.dropzone .dz-preview .dz-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropzone .dz-preview .dz-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
